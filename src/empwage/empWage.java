@@ -7,37 +7,34 @@ public class empWage {
 		System.out.println("Welcome to Employee Wage Computation Program");
 
 
-		int isPresent=1;
-		int fullDay=8;
-		int halfDay=4;
+		int isFullTime=1;
+		int isHalfTime=2;
 		int workingDaysPerMonth=20;
+		int maxHrsInMonth=100;
 		int wagePerHr=20;
-		int dailyWage;
-		int monthlyWage;
-		double empCheck=Math.floor(Math.random()*10)%2;
-		switch ((int)empCheck){
-			case 1:System.out.println("Employee is present");
-		int fullTime=1;
-			double fullTimeCheck=Math.floor(Math.random()*10)%2;
-			if (fullTimeCheck == fullTime){
-			dailyWage=fullDay*wagePerHr;
-			System.out.println("Daily Wage of a full time employee: "+dailyWage);
-			monthlyWage=dailyWage*workingDaysPerMonth;
-			System.out.println("Monthly Wage of a full time employee: "+monthlyWage);
-			}
-			else{
-				dailyWage=halfDay*wagePerHr;
-				System.out.println("Daily Wage of a part time employee: "+dailyWage);
-				monthlyWage=dailyWage*workingDaysPerMonth;
-				System.out.println("Monthly Wage of a part time employee: "+monthlyWage);
-			}
-		break;
-		case 0:System.out.println("Employee is absent");
-		break;
-
-		default: System.out.println("Invalid input");
-		}
+		int totalWorkingDays=0;
+		int totalEmpHrs=0;
 		
+		while(totalEmpHrs <= maxHrsInMonth || totalWorkingDays <= workingDaysPerMonth)
+		{	
+			totalWorkingDays++;
+			int attendance=(int)(Math.random()*3);
+			int empHrs=0;
+			switch(attendance) {
+			case 1: 
+				empHrs=8;
+				break;
+			case 2:
+				empHrs=4;
+				break;
+			default:
+				empHrs=0;
+				break;
+			}
+			totalEmpHrs=(totalEmpHrs+empHrs);
+		}
+		int totalSalary=(totalEmpHrs*totalWorkingDays);
+		System.out.println("Salary of an Employee: "+totalSalary);
 	}
 
 }
