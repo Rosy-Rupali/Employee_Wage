@@ -10,8 +10,10 @@ public class empWage {
 		int isPresent=1;
 		int fullDay=8;
 		int halfDay=4;
+		int workingDaysPerMonth=20;
 		int wagePerHr=20;
 		int dailyWage;
+		int monthlyWage;
 		double empCheck=Math.floor(Math.random()*10)%2;
 		switch ((int)empCheck){
 			case 1:System.out.println("Employee is present");
@@ -20,10 +22,14 @@ public class empWage {
 			if (fullTimeCheck == fullTime){
 			dailyWage=fullDay*wagePerHr;
 			System.out.println("Daily Wage of a full time employee: "+dailyWage);
+			monthlyWage=dailyWage*workingDaysPerMonth;
+			System.out.println("Monthly Wage of a full time employee: "+monthlyWage);
 			}
 			else{
 				dailyWage=halfDay*wagePerHr;
-				System.out.println("Daily Wage of a half time employee: "+dailyWage);
+				System.out.println("Daily Wage of a part time employee: "+dailyWage);
+				monthlyWage=dailyWage*workingDaysPerMonth;
+				System.out.println("Monthly Wage of a part time employee: "+monthlyWage);
 			}
 		break;
 		case 0:System.out.println("Employee is absent");
@@ -31,6 +37,7 @@ public class empWage {
 
 		default: System.out.println("Invalid input");
 		}
+		
 	}
 
 }
