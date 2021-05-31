@@ -3,7 +3,6 @@ package empwage;
 public class empWage {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		System.out.println("Welcome to Employee Wage Computation Program");
 
@@ -14,8 +13,8 @@ public class empWage {
 		int wagePerHr=20;
 		int dailyWage;
 		double empCheck=Math.floor(Math.random()*10)%2;
-		if (empCheck == isPresent){
-			System.out.println("Employee is present");
+		switch ((int)empCheck){
+			case 1:System.out.println("Employee is present");
 		int fullTime=1;
 			double fullTimeCheck=Math.floor(Math.random()*10)%2;
 			if (fullTimeCheck == fullTime){
@@ -24,11 +23,13 @@ public class empWage {
 			}
 			else{
 				dailyWage=halfDay*wagePerHr;
-				System.out.println("Daily Wage of a part time employee: "+dailyWage);
+				System.out.println("Daily Wage of a half time employee: "+dailyWage);
 			}
-		}
-		else{
-			System.out.println("Employee is absent");
+		break;
+		case 0:System.out.println("Employee is absent");
+		break;
+
+		default: System.out.println("Invalid input");
 		}
 	}
 
