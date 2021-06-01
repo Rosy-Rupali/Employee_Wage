@@ -1,43 +1,39 @@
 package empwage;
 
 public class empWage {
+			//constants
+			public static final	int IS_PART_TIME=1;
+			public static final	int IS_FULL_TIME=2;
+			public static final	int EMP_RATE_PER_HOUR=20;
+			public static final	int NUM_OF_WORKING_DAYS=20;
+
 
 	public static void main(String[] args) {
 		
 		System.out.println("Welcome to Employee Wage Computation Program");
-
-
-		int isPresent=1;
-		int fullDay=8;
-		int halfDay=4;
-		int workingDaysPerMonth=20;
-		int wagePerHr=20;
-		int dailyWage;
-		int monthlyWage;
-		double empCheck=Math.floor(Math.random()*10)%2;
-		switch ((int)empCheck){
-			case 1:System.out.println("Employee is present");
-		int fullTime=1;
-			double fullTimeCheck=Math.floor(Math.random()*10)%2;
-			if (fullTimeCheck == fullTime){
-			dailyWage=fullDay*wagePerHr;
-			System.out.println("Daily Wage of a full time employee: "+dailyWage);
-			monthlyWage=dailyWage*workingDaysPerMonth;
-			System.out.println("Monthly Wage of a full time employee: "+monthlyWage);
-			}
-			else{
-				dailyWage=halfDay*wagePerHr;
-				System.out.println("Daily Wage of a part time employee: "+dailyWage);
-				monthlyWage=dailyWage*workingDaysPerMonth;
-				System.out.println("Monthly Wage of a part time employee: "+monthlyWage);
-			}
-		break;
-		case 0:System.out.println("Employee is absent");
-		break;
-
-		default: System.out.println("Invalid input");
-		}
 		
+		//variables
+		int totalEmpWage=0;
+		int empHrs=0;
+		int empWage=0;
+		
+		for(int days=0; days<NUM_OF_WORKING_DAYS; days++) {
+			int empCheck =(int) Math.floor(Math.random()*10)%3;
+			switch(empCheck) {
+				case IS_FULL_TIME:
+						empHrs=8;
+						break;
+				case IS_PART_TIME:
+						empHrs=4;
+						break;
+				default:
+						empHrs=0;
+		}			
+			empWage=empHrs*EMP_RATE_PER_HOUR;
+			totalEmpWage=totalEmpWage+empWage;
+			System.out.println("Emp Wage: "+empWage);
+		}
+		System.out.println("Total Employee Wage: "+totalEmpWage);
 	}
 
 }
